@@ -5,10 +5,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     private Rigidbody _rigidbody;
-    GameObject playerBody;
+    [SerializeField] private GameObject playerBody;
 
     private void Start() {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponentInChildren<Rigidbody>(); ;
     }
     
     public void MovePlayerInDirection(Vector2 direction) {
@@ -23,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
     
     public void PlayerLookAtPosition(Vector3 position) {
         Vector3 positionToLookAt = new Vector3(position.x, transform.position.y, position.z);
-        transform.LookAt(positionToLookAt);
+        playerBody.transform.LookAt(positionToLookAt);
     }
 }

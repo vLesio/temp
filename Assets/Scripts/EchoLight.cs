@@ -7,9 +7,13 @@ namespace Utility{
   public class EchoLight : MonoBehaviour
   {
       [SerializeField] private Light lightComponent;
-      private float speed = 200f;
-      private Coroutine lightCor;
-      private float lineWidth = 0.9f;
+      [SerializeField] private float speed = 200f;
+      [SerializeField] private Coroutine lightCor;
+      [SerializeField] private float Range {
+        get => lightComponent.range;
+        set => lightComponent.range = value;
+      }
+      [SerializeField] private float lineWidth = 0.9f;
 
       private void Awake()
       {
@@ -49,21 +53,13 @@ namespace Utility{
         SetColor(color);
         SetSpeed(speed);
       }
-
-      private IEnumerator Start()
-      {
-          while(true){
-            yield return new WaitForSeconds(2.5f);
-            castLight();
-          }
-      }
       
-      private void castLight(){
+      public void CastLight(){
         if(lightCor != null) StopCoroutine(lightCor);
-        lightCor = StartCoroutine(castLightCoroutine());
+        lightCor = StartCoroutine(CastLightCoroutine());
       }
 
-      private IEnumerator castLightCoroutine(){
+      private IEnumerator CastLightCoroutine(){
         lightComponent.enabled = true;
         lightComponent.spotAngle = 0f;
         lightComponent.innerSpotAngle = 0f;
@@ -74,6 +70,7 @@ namespace Utility{
         }
         lightComponent.enabled = false;
         lightCor = null;
+        Destroy(gameObject);
       }
 
       private Texture2D GenerateCookie(float outerRadius, float innerRadius)
