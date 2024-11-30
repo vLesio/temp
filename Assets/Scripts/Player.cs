@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
     private PlayerMovement _playerMovement;
     private PlayerEcho _playerEcho;
     private Camera _mainCamera;
+    private Animator _animator;
     void Start()
     {
         // Self components
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour {
         _playerInput = GetComponent<PlayerInput>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerEcho = GetComponent<PlayerEcho>();
+        _animator = GetComponentInChildren<Animator>();
         // Children components
         
         RegisterPlayerInput();
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour {
     
     public void OnEchoCast(InputAction.CallbackContext obj) {
         Debug.Log("Echo Casted");
-        _playerEcho.CastEchoEffect();
+        _animator.SetTrigger("Snap");
     }
 
     public void OnJump(InputAction.CallbackContext obj) {
