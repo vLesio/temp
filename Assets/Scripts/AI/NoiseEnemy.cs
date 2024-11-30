@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,17 @@ public class NoiseEnemy : MonoBehaviour
     [SerializeField] private float detectionDistance = 10f;
     [SerializeField] private float walkDistance = 16f;
 
+    private Vector3 startPosition;
+    private Coroutine backCor;
+    private Vector3 lastChecked;
+
     private float speed = 0.75f;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+        lastChecked = startPosition;
+    }
 
     public void SetSpeed(float speed){
         this.speed = speed;
@@ -42,10 +53,45 @@ public class NoiseEnemy : MonoBehaviour
             StopEnemy();
             return;
         }
+
+        if(backCor == null){
+            lastChecked = noiseSource;
+            backCor = StartCoroutine(GoBackWhenDone());
+        }
+    }
+
+    public void PathFindToStart(){
+        PathFindToPosition(startPosition);
+    }
+
+    public bool PathFindToPosition(Vector3 position){
+        agent.speed = speed;
+        agent.isStopped = false;
+        agent.SetDestination(position);
+        if(agent.pathStatus != NavMeshPathStatus.PathComplete || agent.path == null){
+            StopEnemy();
+            return false;
+        }
+        return true;
     }
 
     private void StopEnemy(){
         agent.SetDestination(transform.position);
             agent.isStopped = true;
+    }
+
+    private IEnumerator GoBackWhenDone(){
+        float backTime = Random.Range(3,5);
+        while(true){
+            yield return null;
+            if(Vector3.Distance(lastChecked , transform.position) < 0.1f) backTime -= Time.deltaTime;
+            else backTime = 3;
+            if(backTime < 0f){
+                lastChecked = startPosition;
+                PathFindToStart();
+                backCor = null;
+                yield break;
+            }
+        }
     }
 }
