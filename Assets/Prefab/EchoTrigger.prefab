@@ -70,6 +70,9 @@ MonoBehaviour:
   triggeredBy:
     serializedVersion: 2
     m_Bits: 192
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!54 &1865935357824336956
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTime: 5
+  visibleTime: 1.75
   skinnedMesh: {fileID: 0}
   outlinedObject: {fileID: 377864982}
 --- !u!65 &377864981
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTime: 5
+  visibleTime: 1.75
   skinnedMesh: {fileID: 0}
   outlinedObject: {fileID: 590179893}
 --- !u!1 &675719341
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTime: 5
+  visibleTime: 1.75
   skinnedMesh: {fileID: 0}
   outlinedObject: {fileID: 920112849}
 --- !u!65 &920112848
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTime: 5
+  visibleTime: 1.75
   skinnedMesh: {fileID: 0}
   outlinedObject: {fileID: 1754157438}
 --- !u!65 &1754157437

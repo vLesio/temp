@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibleTime: 3
+  visibleTime: 1
   skinnedMesh: {fileID: 4400587231128601144}
   outlinedObject: {fileID: 0}
 --- !u!1 &8207972256066721068

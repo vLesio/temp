@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class EchoLightTrigger : MonoBehaviour
 {
     [SerializeField] private LayerMask triggeredBy;
+    [SerializeField] private LayerMask collisionLayer;
     private SphereCollider objCollider;
 
     List<Collider> collidedWith = new List<Collider>(0);
@@ -48,6 +49,12 @@ public class EchoLightTrigger : MonoBehaviour
 
     public void RunOtherColliderLogic(Collider other){
         ObjectEnlighter obEnlight = other.gameObject.GetComponent<ObjectEnlighter>();
+        //if(!isSeen(other.gameObject)) return;
         if(obEnlight) obEnlight.Enlight();
+    }
+
+    public bool isSeen(GameObject other){
+        return !Physics.Raycast(transform.position , other.transform.position - transform.position , 
+        Vector3.Distance(other.transform.position , transform.position), collisionLayer);
     }
 }
