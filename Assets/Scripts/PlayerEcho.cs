@@ -6,11 +6,15 @@ public class PlayerEcho : MonoBehaviour
     [SerializeField] private float yOffset = 3f;
     private void Start()
     {
-        _echoEffectFactory = GetComponentInChildren<EchoEffectFactory>();
+        _echoEffectFactory = transform.parent.GetComponentInChildren<EchoEffectFactory>();
     }
     
     public void CastEchoEffect()
     {
+        _echoEffectFactory.CreateAndCastEchoEffect(transform.position + Vector3.up * yOffset);
+    }
+
+    public void CastFootStepEchoEffect() {
         _echoEffectFactory.CreateAndCastEchoEffect(transform.position + Vector3.up * yOffset);
     }
 }
