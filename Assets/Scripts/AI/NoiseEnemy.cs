@@ -15,6 +15,10 @@ public class NoiseEnemy : MonoBehaviour
     }
 
     public void PathFindToNoise(Vector3 noiseSource){
+        
+        // tymczasowo
+        noiseSource.y = 0;
+
         agent.speed = speed;
         agent.isStopped = false;
         agent.SetDestination(noiseSource);
