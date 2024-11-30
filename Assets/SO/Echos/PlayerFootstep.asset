@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerFootstep
   m_EditorClassIdentifier: 
   range: 2.5
-  speed: 500
-  width: 0.3
+  speed: 800
+  width: 0.8
   yOffset: 2
   intensity: 20
   shouldCastTrigger: 1
