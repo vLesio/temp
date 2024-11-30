@@ -15,7 +15,7 @@ MonoBehaviour:
   range: 2.5
   speed: 500
   width: 0.9
-  yOffset: 2
+  yOffset: 2.75
   intensity: 20
   color: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}

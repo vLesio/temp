@@ -12,10 +12,12 @@ public class FirstBigDoor : MonoBehaviour, IInteractable {
     private AudioSource _audioSource;
     private AudioManager _audioManager;
     private bool hasLoraResponded = false;
+    private float _openAnimTime;
 
     public void Start() {
         _audioSource = GetComponent<AudioSource>();
         _audioManager = AudioManager.I;
+        _openAnimTime = openSound.length;
     }
     
     public bool CanInteract() {
@@ -56,11 +58,22 @@ public class FirstBigDoor : MonoBehaviour, IInteractable {
         while (_audioSource.isPlaying) {
             yield return new WaitForSecondsRealtime(0.1f);
         }
-
         _audioSource.clip = openSound;
         _audioSource.Play();
-        // #TODO: Play animation
+        StartCoroutine(DoorOpenAnimation());
         isInteracting = false;
         isOpened = true;
+    }
+    
+    IEnumerator DoorOpenAnimation() {
+        var startPosition = transform.localPosition;
+        var progress = 0f;
+        var timePassed = 0f;
+        while (progress < 1f) {
+            timePassed += Time.deltaTime;
+            progress = timePassed / _openAnimTime;
+            transform.localPosition = Vector3.Lerp(startPosition, startPosition - new Vector3(0f, 2.25f, 0f), progress);
+            yield return null;
+        }
     }
 }
