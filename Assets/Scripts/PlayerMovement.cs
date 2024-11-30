@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayerInDirection(Vector2 direction) {
         Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
+        playerBody.transform.LookAt(transform.position + moveDirection);
         var wishSpeed = speed * moveDirection.normalized;
         _rigidbody.linearVelocity = Vector3.Lerp(_rigidbody.linearVelocity, wishSpeed, 20 * Time.deltaTime);
     }
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     }
     
     public void PlayerLookAtPosition(Vector3 position) {
-        Vector3 positionToLookAt = new Vector3(position.x, transform.position.y, position.z);
-        playerBody.transform.LookAt(positionToLookAt);
+        // Vector3 positionToLookAt = new Vector3(position.x, transform.position.y, position.z);
+        // playerBody.transform.LookAt(positionToLookAt);
     }
 }
