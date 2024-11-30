@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class EchoLightTrigger : MonoBehaviour
     [SerializeField] private LayerMask triggeredBy;
     private SphereCollider objCollider;
 
-    List<Collider> collidedWith;
+    List<Collider> collidedWith = new List<Collider>(0);
 
     private void Awake()
     {
@@ -37,14 +38,16 @@ public class EchoLightTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   
         if(!IsInLayerMask(other.gameObject)) return;
         if(collidedWith.Contains(other)) return;
+        Debug.Log(other.name);
         collidedWith.Add(other);
         RunOtherColliderLogic(other);
     }
 
     public void RunOtherColliderLogic(Collider other){
-
+        ObjectEnlighter obEnlight = other.gameObject.GetComponent<ObjectEnlighter>();
+        if(obEnlight) obEnlight.Enlight();
     }
 }
