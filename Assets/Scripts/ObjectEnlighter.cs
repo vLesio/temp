@@ -17,7 +17,6 @@ public class ObjectEnlighter : MonoBehaviour
     }
 
     private void SetAllMaterialsOpacity(float value){
-        Debug.Log("changed");
         if(skinnedMesh){
             for(int i = 0; i < skinnedMesh.materials.Length; i++){
                 skinnedMesh.materials[i].SetFloat("_Opacity" , value);

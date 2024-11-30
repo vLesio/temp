@@ -11,7 +11,8 @@ public class PlayerEcho : MonoBehaviour
     
     public void CastEchoEffect()
     {
-        _echoEffectFactory.CreateAndCastEchoEffect(transform.position + Vector3.up * yOffset, 7, 250, Color.white);
+        //7
+        _echoEffectFactory.CreateAndCastEchoEffect(transform.position + Vector3.up * yOffset, 30, 250, Color.white);
     }
 
     public void CastFootStepEchoEffect() {

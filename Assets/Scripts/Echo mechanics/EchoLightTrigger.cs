@@ -42,7 +42,6 @@ public class EchoLightTrigger : MonoBehaviour
     {   
         if(!IsInLayerMask(other.gameObject)) return;
         if(collidedWith.Contains(other)) return;
-        Debug.Log(other.name);
         collidedWith.Add(other);
         RunOtherColliderLogic(other);
     }
@@ -51,6 +50,9 @@ public class EchoLightTrigger : MonoBehaviour
         ObjectEnlighter obEnlight = other.gameObject.GetComponent<ObjectEnlighter>();
         //if(!isSeen(other.gameObject)) return;
         if(obEnlight) obEnlight.Enlight();
+
+        NoiseEnemy noise_en = other.GetComponent<NoiseEnemy>();
+            if(noise_en) noise_en.PathFindToNoise(transform.position);
     }
 
     public bool isSeen(GameObject other){
