@@ -23,7 +23,6 @@ public class Player : MonoBehaviour {
 
     private void Update() {
         CheckInputIfMove();
-        UpdateOnLook();
     }
 
     private void RegisterPlayerInput() {

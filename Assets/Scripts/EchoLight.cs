@@ -13,9 +13,12 @@ namespace Utility{
       [SerializeField] private float speed = 200f;
       [SerializeField] private Coroutine lightCor;
       [SerializeField] private AnimationCurve speedupFunction;
+      [SerializeField] private GameObject lightTrigger;
+      [SerializeField] private float inputIntensity;
+
       public float Range {
         get => lightComponent.range;
-        set => lightComponent.range = value;
+        set => lightComponent.range = value * 2.5f;
       }
       [SerializeField] private float lineWidth = 0.9f;
 
@@ -28,7 +31,7 @@ namespace Utility{
       }
 
       public void SetRange(float range){
-        lightComponent.range = range;
+        lightComponent.range = range * 2.5f;
       }
 
       public void SetColor(Color color){
@@ -52,10 +55,11 @@ namespace Utility{
         lightComponent.cookie = GenerateCookie(1f, 1f-lineWidth);
       }
 
-      public void SetLight(float range, float speed, Color color){
+      public void SetLight(float range, float speed, float intensity, Color color){
         SetRange(range);
         SetColor(color);
         SetSpeed(speed);
+        inputIntensity = intensity;
       }
       
       public void CastLight(){
@@ -68,11 +72,19 @@ namespace Utility{
         lightComponent.enabled = true;
         lightComponent.spotAngle = 0f;
         lightComponent.innerSpotAngle = 0f;
+
+        GameObject tr = Instantiate(lightTrigger);
+        tr.transform.position = transform.position - Vector3.up;
+        tr.transform.SetParent(transform);
+        EchoLightTrigger echoTrigger = tr.GetComponent<EchoLightTrigger>();
+
         while(lightComponent.spotAngle < 155){
           yield return null;
           lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
-          lightComponent.intensity = Mathf.Min(2 , (158 - lightComponent.spotAngle)/40);
+          lightComponent.intensity = inputIntensity * Mathf.Min(1 , (158 - lightComponent.spotAngle)/60);
+          echoTrigger.AddRadius(speed / 360f * lightComponent.range * 
+          speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime / 1.5f);
         }
         lightComponent.enabled = false;
         lightCor = null;

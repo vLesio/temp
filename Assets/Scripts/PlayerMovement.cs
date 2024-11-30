@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     }
     
     public void PlayerLookAtPosition(Vector3 position) {
-        // Vector3 positionToLookAt = new Vector3(position.x, transform.position.y, position.z);
-        // playerBody.transform.LookAt(positionToLookAt);
+        Vector3 positionToLookAt = new Vector3(position.x, transform.position.y, position.z);
+        playerBody.transform.LookAt(positionToLookAt);
     }
 }
