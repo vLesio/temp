@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using SO.Echos;
+using Unity.Collections;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -18,6 +20,8 @@ namespace Utility{
       [SerializeField] private float inputIntensity;
       [SerializeField] private bool emitTrigger = true;
       [SerializeField] private bool enlightOnlySeenByPlayer = true;
+      
+      private static Dictionary<Vector2, Texture2D> bakedTextures = new();
 
       public float Range {
         get => lightComponent.range;
@@ -113,8 +117,10 @@ namespace Utility{
         Destroy(gameObject);
       }
       
-      private Texture2D GenerateCookie(float outerRadius, float innerRadius)
-    {
+      private Texture2D GenerateCookie(float outerRadius, float innerRadius) {
+        var textureKey = new Vector2(outerRadius, innerRadius);
+        if(bakedTextures.TryGetValue(textureKey, out var cookie)) return cookie;
+        
         innerRadius = innerRadius * 256;
         outerRadius = outerRadius * 256;
         int size = 512;
@@ -153,6 +159,7 @@ namespace Utility{
 
         // Apply changes to the texture
         texture.Apply();
+        bakedTextures.Add(textureKey, texture);
         return texture;
     }
   }
