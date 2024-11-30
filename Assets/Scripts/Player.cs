@@ -39,7 +39,6 @@ public class Player : MonoBehaviour {
     }
     
     public void OnEchoCast(InputAction.CallbackContext obj) {
-        Debug.Log("Echo Casted");
         _animator.SetTrigger("Snap");
     }
 

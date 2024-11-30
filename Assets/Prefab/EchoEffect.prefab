@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336322043572985550}
   - component: {fileID: 4662750356016965594}
+  - component: {fileID: 148804310729907874}
   m_Layer: 0
   m_Name: EchoEffect
   m_TagString: Untagged
@@ -166,6 +167,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525091aa2ee134047a960884c9f75bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 148804310729907874}
+        m_TargetAssemblyTypeName: SoundAlert, Assembly-CSharp
+        m_MethodName: AlertEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lightComponent: {fileID: 2674499210500967879}
   speed: 200
   speedupFunction:
@@ -201,4 +217,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  lineWidth: 0.2
+  lineWidth: 0.75
+--- !u!114 &148804310729907874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792221875798739299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bee7ca3ed911b46b1719cf841bd4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundDistance: 5.5
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64

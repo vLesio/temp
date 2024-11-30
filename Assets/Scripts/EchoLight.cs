@@ -3,10 +3,12 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 namespace Utility{
   public class EchoLight : MonoBehaviour
   {
+      [SerializeField] private UnityEvent onSound;
       [SerializeField] private Light lightComponent;
       [SerializeField] private float speed = 200f;
       [SerializeField] private Coroutine lightCor;
@@ -59,6 +61,7 @@ namespace Utility{
       public void CastLight(){
         if(lightCor != null) StopCoroutine(lightCor);
         lightCor = StartCoroutine(CastLightCoroutine());
+        onSound.Invoke();
       }
 
       private IEnumerator CastLightCoroutine(){
