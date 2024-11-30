@@ -55,10 +55,11 @@ namespace Utility{
         lightComponent.cookie = GenerateCookie(1f, 1f-lineWidth);
       }
 
-      public void SetLight(float range, float speed, float intensity, Color color){
+      public void SetLight(float range, float speed, float width, float intensity, Color color){
         SetRange(range);
         SetColor(color);
         SetSpeed(speed);
+        SetLineWidth(width);
         inputIntensity = intensity;
       }
       
