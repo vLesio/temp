@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2.5
   speed: 250
+  yOffset: 3
   color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}

@@ -12,8 +12,9 @@ public class EchoEffectFactory : MonoBehaviour {
             echoLight.CastLight();
         }
         
-        public void CreateAndCastEchoEffect(Vector3 position, Echo echo){
-            var echoLight = Instantiate(echoLightPrefab, position, Quaternion.identity).GetComponent<EchoLight>();
+        public void CreateAndCastEchoEffect(Vector3 position, Echo echo) {
+            var positionToSpawn = position + Vector3.up * echo.yOffset;
+            var echoLight = Instantiate(echoLightPrefab, positionToSpawn, Quaternion.identity).GetComponent<EchoLight>();
             echoLight.SetLight(echo.range, echo.speed, echo.color);
             echoLight.transform.position = position;
             echoLight.CastLight();

@@ -5,6 +5,7 @@ namespace SO.Echos {
     public class Echo : ScriptableObject {
         public float range;
         public float speed;
+        public float yOffset;
         public Color color;
     }
 }
