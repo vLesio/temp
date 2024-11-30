@@ -8,6 +8,8 @@ namespace SO.Echos {
         public float width;
         public float yOffset;
         public float intensity;
+        public bool shouldCastTrigger;
+        public bool enlightIgnoresWalls;
         public Color color;
         public AudioClip soundEffect;
     }

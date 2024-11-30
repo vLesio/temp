@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 1.5
   speed: 250
-  width: 0.9
-  yOffset: 3
-  intensity: 2
+  width: 0.3
+  yOffset: 2
+  intensity: 50
+  shouldCastTrigger: 0
+  enlightIgnoresWalls: 0
   color: {r: 1, g: 0, b: 0, a: 1}
   soundEffect: {fileID: 0}

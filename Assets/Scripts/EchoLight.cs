@@ -1,4 +1,5 @@
 using System.Collections;
+using SO.Echos;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -15,6 +16,8 @@ namespace Utility{
       [SerializeField] private AnimationCurve speedupFunction;
       [SerializeField] private GameObject lightTrigger;
       [SerializeField] private float inputIntensity;
+      [SerializeField] private bool emitTrigger = true;
+      [SerializeField] private bool enlightOnlySeenByPlayer = true;
 
       public float Range {
         get => lightComponent.range;
@@ -55,21 +58,23 @@ namespace Utility{
         lightComponent.cookie = GenerateCookie(1f, 1f-lineWidth);
       }
 
-      public void SetLight(float range, float speed, float width, float intensity, Color color){
-        SetRange(range);
-        SetColor(color);
-        SetSpeed(speed);
-        SetLineWidth(width);
-        inputIntensity = intensity;
+      public void SetLight(Echo echo){
+        SetRange(echo.range);
+        SetColor(echo.color);
+        SetSpeed(echo.speed);
+        SetLineWidth(echo.width);
+        emitTrigger = echo.shouldCastTrigger;
+        inputIntensity = echo.intensity;
+        enlightOnlySeenByPlayer = echo.enlightIgnoresWalls;
       }
       
       public void CastLight(){
         if(lightCor != null) StopCoroutine(lightCor);
-        lightCor = StartCoroutine(CastLightCoroutine());
+        lightCor = emitTrigger ? StartCoroutine(CastLightCoroutineWithTrigger()) : StartCoroutine(CastLightCoroutine());
         onSound.Invoke();
       }
 
-      private IEnumerator CastLightCoroutine(){
+      private IEnumerator CastLightCoroutineWithTrigger(){
         lightComponent.enabled = true;
         lightComponent.spotAngle = 0f;
         lightComponent.innerSpotAngle = 0f;
@@ -78,6 +83,7 @@ namespace Utility{
         tr.transform.position = transform.position - Vector3.up;
         tr.transform.SetParent(transform);
         EchoLightTrigger echoTrigger = tr.GetComponent<EchoLightTrigger>();
+        echoTrigger.ShouldEnlightIgnoreWalls(enlightOnlySeenByPlayer);
 
         while(lightComponent.spotAngle < 155){
           yield return null;
@@ -91,7 +97,22 @@ namespace Utility{
         lightCor = null;
         Destroy(gameObject);
       }
-
+      
+      private IEnumerator CastLightCoroutine(){
+        lightComponent.enabled = true;
+        lightComponent.spotAngle = 0f;
+        lightComponent.innerSpotAngle = 0f;
+        while(lightComponent.spotAngle < 155){
+          yield return null;
+          lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
+          lightComponent.innerSpotAngle = lightComponent.spotAngle;
+          lightComponent.intensity = inputIntensity * Mathf.Min(1 , (158 - lightComponent.spotAngle)/60);
+        }
+        lightComponent.enabled = false;
+        lightCor = null;
+        Destroy(gameObject);
+      }
+      
       private Texture2D GenerateCookie(float outerRadius, float innerRadius)
     {
         innerRadius = innerRadius * 256;

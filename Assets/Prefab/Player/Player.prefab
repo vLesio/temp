@@ -700,7 +700,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2914436167730660418}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d3ea2f3ce8a4b6c41925372f0813215a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -728,7 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3db02d869daad4f9230dc87c730f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yOffset: 3
   footStepEcho: {fileID: 11400000, guid: 17d78b435fe459b4f9c6230e68579b9f, type: 2}
   snapEcho: {fileID: 11400000, guid: 788cf8be2fa39944b9556e4b9ed01463, type: 2}
 --- !u!1 &3163551172311059917
@@ -2187,7 +2186,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8723723814061288744}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0

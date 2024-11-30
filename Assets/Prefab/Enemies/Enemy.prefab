@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2629393500326008936}
   - component: {fileID: 2814516205732833008}
   - component: {fileID: 1053925324588672667}
+  - component: {fileID: 5014615318272647146}
+  - component: {fileID: 6353864892701468767}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -71,6 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1289699005888590123}
+  detectionDistance: 10
+  walkDistance: 16
 --- !u!136 &2814516205732833008
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -109,6 +113,34 @@ MonoBehaviour:
   visibleTime: 1
   skinnedMesh: {fileID: 4400587231128601144}
   outlinedObject: {fileID: 0}
+--- !u!114 &5014615318272647146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123480169619706135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b4a70dc6ebd1b4ca57db17e5877c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  echo: {fileID: 11400000, guid: f4f39d6e9b766b64b90eb04fbdffa459, type: 2}
+  castInterval: 0.7
+  randomBias: 0.2
+--- !u!114 &6353864892701468767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123480169619706135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c7b3cc87ea46afbbfe932235882f2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  echoLightPrefab: {fileID: 6792221875798739299, guid: 17360bf8ad25e804887f0efaf2cc02a5, type: 3}
 --- !u!1 &8207972256066721068
 GameObject:
   m_ObjectHideFlags: 0

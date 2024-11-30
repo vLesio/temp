@@ -9,6 +9,7 @@ public class EchoLightTrigger : MonoBehaviour
     [SerializeField] private LayerMask triggeredBy;
     [SerializeField] private LayerMask collisionLayer;
     private SphereCollider objCollider;
+    private bool _enlightIgnoreWalls = true;
 
     List<Collider> collidedWith = new List<Collider>(0);
 
@@ -26,6 +27,10 @@ public class EchoLightTrigger : MonoBehaviour
     }
     public void SetRadius(float radius){
         objCollider.radius = radius;
+    }
+    
+    public void ShouldEnlightIgnoreWalls(bool value){
+        _enlightIgnoreWalls = value;
     }
 
     public void AddRadius(float amount){
@@ -48,9 +53,9 @@ public class EchoLightTrigger : MonoBehaviour
 
     public void RunOtherColliderLogic(Collider other){
         ObjectEnlighter obEnlight = other.gameObject.GetComponent<ObjectEnlighter>();
-        if(!isSeen(other.gameObject)) return;
+        if(!_enlightIgnoreWalls && !isSeen(other.gameObject))
+            return;
         if(obEnlight) obEnlight.Enlight();
-
         NoiseEnemy noise_en = other.GetComponent<NoiseEnemy>();
             if(noise_en) noise_en.PathFindToNoise(transform.position);
     }
