@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSnap
   m_EditorClassIdentifier: 
   range: 100
-  speed: 150
-  width: 0.3
+  speed: 250
+  width: 1
   yOffset: 10
   intensity: 1000
   shouldCastTrigger: 1
