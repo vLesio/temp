@@ -15,4 +15,5 @@ MonoBehaviour:
   range: 1.5
   speed: 250
   yOffset: 3
+  intensity: 2
   color: {r: 1, g: 0, b: 0, a: 1}

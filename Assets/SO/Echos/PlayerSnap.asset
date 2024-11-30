@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555edefa71cc1f14ca93a7275dd323e9, type: 3}
   m_Name: PlayerSnap
   m_EditorClassIdentifier: 
-  range: 20
-  speed: 250
+  range: 100
+  speed: 150
   yOffset: 10
+  intensity: 100
   color: {r: 1, g: 1, b: 1, a: 1}

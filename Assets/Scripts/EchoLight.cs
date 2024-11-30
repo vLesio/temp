@@ -14,6 +14,7 @@ namespace Utility{
       [SerializeField] private Coroutine lightCor;
       [SerializeField] private AnimationCurve speedupFunction;
       [SerializeField] private GameObject lightTrigger;
+      [SerializeField] private float inputIntensity;
 
       public float Range {
         get => lightComponent.range;
@@ -54,10 +55,11 @@ namespace Utility{
         lightComponent.cookie = GenerateCookie(1f, 1f-lineWidth);
       }
 
-      public void SetLight(float range, float speed, Color color){
+      public void SetLight(float range, float speed, float intensity, Color color){
         SetRange(range);
         SetColor(color);
         SetSpeed(speed);
+        inputIntensity = intensity;
       }
       
       public void CastLight(){
@@ -80,7 +82,7 @@ namespace Utility{
           yield return null;
           lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
-          lightComponent.intensity = Mathf.Min(2 , (158 - lightComponent.spotAngle)/40);
+          lightComponent.intensity = inputIntensity * Mathf.Min(1 , (158 - lightComponent.spotAngle)/60);
           echoTrigger.AddRadius(speed / 360f * lightComponent.range * 
           speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime / 1.5f);
         }

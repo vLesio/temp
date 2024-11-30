@@ -6,6 +6,8 @@ namespace SO.Echos {
         public float range;
         public float speed;
         public float yOffset;
+        public float intensity;
         public Color color;
+        public AudioClip soundEffect;
     }
 }
