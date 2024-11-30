@@ -49,7 +49,7 @@ public class EchoLightTrigger : MonoBehaviour
 
     public void RunOtherColliderLogic(Collider other){
         ObjectEnlighter obEnlight = other.gameObject.GetComponent<ObjectEnlighter>();
-        //if(!isSeen(other.gameObject)) return;
+        if(!isSeen(other.gameObject)) return;
         if(obEnlight) obEnlight.Enlight();
     }
 

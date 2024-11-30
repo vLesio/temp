@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SO.Echos;
+using UnityEngine;
 using Utility;
 
 public class EchoEffectFactory : MonoBehaviour {
@@ -7,6 +8,13 @@ public class EchoEffectFactory : MonoBehaviour {
         public void CreateAndCastEchoEffect(Vector3 position, float range, float speed, Color color){
             var echoLight = Instantiate(echoLightPrefab, position, Quaternion.identity).GetComponent<EchoLight>();
             echoLight.SetLight(range, speed, color);
+            echoLight.transform.position = position;
+            echoLight.CastLight();
+        }
+        
+        public void CreateAndCastEchoEffect(Vector3 position, Echo echo){
+            var echoLight = Instantiate(echoLightPrefab, position, Quaternion.identity).GetComponent<EchoLight>();
+            echoLight.SetLight(echo.range, echo.speed, echo.color);
             echoLight.transform.position = position;
             echoLight.CastLight();
         }
