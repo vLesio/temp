@@ -1,15 +1,19 @@
 using System.Collections;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 namespace Utility{
   public class EchoLight : MonoBehaviour
   {
+      [SerializeField] private UnityEvent onSound;
       [SerializeField] private Light lightComponent;
       [SerializeField] private float speed = 200f;
       [SerializeField] private Coroutine lightCor;
-      [SerializeField] private float Range {
+      [SerializeField] private AnimationCurve speedupFunction;
+      public float Range {
         get => lightComponent.range;
         set => lightComponent.range = value;
       }
@@ -57,16 +61,18 @@ namespace Utility{
       public void CastLight(){
         if(lightCor != null) StopCoroutine(lightCor);
         lightCor = StartCoroutine(CastLightCoroutine());
+        onSound.Invoke();
       }
 
       private IEnumerator CastLightCoroutine(){
         lightComponent.enabled = true;
         lightComponent.spotAngle = 0f;
         lightComponent.innerSpotAngle = 0f;
-        while(lightComponent.spotAngle < 179){
+        while(lightComponent.spotAngle < 155){
           yield return null;
-          lightComponent.spotAngle += speed * Time.deltaTime;
+          lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
+          lightComponent.intensity = Mathf.Min(2 , (158 - lightComponent.spotAngle)/40);
         }
         lightComponent.enabled = false;
         lightCor = null;
