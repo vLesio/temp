@@ -10,13 +10,20 @@ public class AudioManager : MonoBehaviour {
     [Header("Sounds configuration")] [SerializeField]
     private GameObject soundObjectPrefab;
     private AudioSource[] soundSources;
+
+    public static AudioManager I;
     
-    void Start()
-    {
-        
+    void Awake() {
+        if (I == null) {
+            I = this;  
+        }
     }
 
-    void PlayMusic(AudioClip musicClip) {
+    public void PlayShot(AudioClip audioClip) {
+        defaultSoundSource.PlayOneShot(audioClip);
+    }
+
+    public void PlayMusic(AudioClip musicClip) {
         if (!musicSource.isPlaying) {
             musicSource.clip = musicClip;
             musicSource.Play();
@@ -24,6 +31,10 @@ public class AudioManager : MonoBehaviour {
         }
 
         StartCoroutine(FadeOutMusicAndPlay(musicClip));
+    }
+
+    public void PlayDialogue(AudioClip audioClip) {
+        dialogueSource.PlayOneShot(audioClip);
     }
 
     void StopMusic() {
