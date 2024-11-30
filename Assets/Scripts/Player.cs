@@ -31,9 +31,9 @@ public class Player : MonoBehaviour {
 
     public void UpdateOnLook() {
         var mousePosition = _playerInput.actions["Look"].ReadValue<Vector2>();
-        var mousePositionInScreen = new Vector3(mousePosition.x, mousePosition.y, 100);
-        // var worldPoint = _mainCamera.ScreenToWorldPoint(mousePositionInScreen);
-        // _playerMovement.PlayerLookAtPosition(worldPoint);
+        var mousePositionInScreen = new Vector3(mousePosition.x, mousePosition.y, Vector3.Distance(_mainCamera.transform.position , transform.position));
+        var worldPoint = _mainCamera.ScreenToWorldPoint(mousePositionInScreen);
+        _playerMovement.PlayerLookAtPosition(worldPoint);
     }
     
     public void OnEchoCast(InputAction.CallbackContext obj) {
