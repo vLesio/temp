@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3db02d869daad4f9230dc87c730f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 3
 --- !u!54 &1218815766427010526
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2199,7 +2200,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1067058120689995236, guid: 24fc2c3e62c52bf4e9e63fd980b8e85d, type: 3}
+  - {fileID: 2100000, guid: d8ec2938f2022ad468d986c121104d98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
