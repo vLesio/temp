@@ -3512,6 +3512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225602027192043164, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 651689656480623941, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4871,6 +4875,7 @@ MonoBehaviour:
   commentClip: {fileID: 8300000, guid: f9d9bd358f63a5747bd90cabb866353a, type: 3}
   input: {fileID: 1717858554}
   isBlocking: 1
+  audioSource: {fileID: 1216329654}
 --- !u!65 &1216329656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9818,6 +9823,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 675568579}
     m_Modifications:
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814468353404104925, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089418045242777558, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089418045242777558, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4278386608200249371, guid: 26e6042e782ac67419afe3264dda9ec9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
