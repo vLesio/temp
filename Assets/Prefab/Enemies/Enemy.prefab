@@ -75,6 +75,7 @@ MonoBehaviour:
   agent: {fileID: 1289699005888590123}
   detectionDistance: 10
   walkDistance: 16
+  speed: 1.5
 --- !u!136 &2814516205732833008
 CapsuleCollider:
   m_ObjectHideFlags: 0
