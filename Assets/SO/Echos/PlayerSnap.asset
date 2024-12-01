@@ -87,4 +87,4 @@ MonoBehaviour:
   shouldCastTrigger: 1
   enlightIgnoresWalls: 1
   color: {r: 0.5707547, g: 1, b: 0.96889526, a: 1}
-  soundEffect: {fileID: 8300000, guid: b4857a87139bc4740a87f2c04e421d81, type: 3}
+  soundEffect: {fileID: 8300000, guid: 8dd882cb4e5d39f4aa85883fe1c4359f, type: 3}
