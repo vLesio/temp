@@ -5269,7 +5269,7 @@ MonoBehaviour:
   generatorTwoAudio: {fileID: 6637701981441447363}
   alarm: {fileID: 8300000, guid: 7c3419930b2ea9f4aa10b080dc9a602e, type: 3}
   aiVoiceLoop: {fileID: 8300000, guid: c3ecd5b50d89bd14fb67d93aa8669fee, type: 3}
-  goBackToEmergencyClip: {fileID: 0}
+  goBackToEmergencyClip: {fileID: 8300000, guid: 4e782dafd5ffa9c4abf9589a99fa7c54, type: 3}
 --- !u!82 &686836684
 AudioSource:
   m_ObjectHideFlags: 0
