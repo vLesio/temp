@@ -6,6 +6,7 @@ public class FirstBigDoor : MonoBehaviour, IInteractable {
     [SerializeField] private AudioClip accessDeniedClip;
     [SerializeField] private AudioClip accessGrantedClip;
     [SerializeField] private AudioClip leiraAccessDeniedClip;
+    [SerializeField] private AudioClip doorOpenedComment;
 
     private bool isOpened = false;
     private bool isInteracting = false;
@@ -75,6 +76,7 @@ public class FirstBigDoor : MonoBehaviour, IInteractable {
             transform.localPosition = Vector3.Lerp(startPosition, startPosition - new Vector3(0f, 2.25f, 0f), progress);
             yield return null;
         }
+        _audioManager.PlayDialogue(doorOpenedComment);
     }
 
     public Transform GetTransform()
