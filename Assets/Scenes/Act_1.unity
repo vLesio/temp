@@ -4544,6 +4544,7 @@ GameObject:
   - component: {fileID: 599401991}
   - component: {fileID: 599401990}
   - component: {fileID: 599401989}
+  - component: {fileID: 599401992}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -4611,6 +4612,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: eec855eb2c5500a4caf2074a8c0cb9d9, type: 2}
+  - {fileID: 2100000, guid: 0d53bb4036abc63478609fecc4be7cf5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4640,6 +4642,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599401987}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &599401992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599401987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleTime: 3
+  skinnedMesh: {fileID: 0}
+  outlinedObject: {fileID: 599401990}
 --- !u!43 &623228318
 Mesh:
   m_ObjectHideFlags: 0
@@ -5154,6 +5171,7 @@ GameObject:
   - component: {fileID: 686836680}
   - component: {fileID: 686836683}
   - component: {fileID: 686836684}
+  - component: {fileID: 686836685}
   m_Layer: 0
   m_Name: SwitchActive
   m_TagString: Untagged
@@ -5222,6 +5240,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: eec855eb2c5500a4caf2074a8c0cb9d9, type: 2}
+  - {fileID: 2100000, guid: 0d53bb4036abc63478609fecc4be7cf5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5367,6 +5386,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &686836685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686836678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5193309f36cf84699325eeb9be984b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleTime: 3
+  skinnedMesh: {fileID: 0}
+  outlinedObject: {fileID: 686836681}
 --- !u!4 &696517712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244872963000552307, guid: a715297982ccc1f40b153117b38d78b0, type: 3}
