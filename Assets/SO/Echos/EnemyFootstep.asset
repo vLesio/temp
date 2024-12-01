@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: EnemyFootstep
   m_EditorClassIdentifier: 
   range: 5
-  duration: 2
-  desiredAngle: 110
-  width: 0.3
-  yOffset: 2
-  intensity: 1000
+  duration: 1
+  desiredAngle: 70
+  width: 0.05
+  yOffset: 3
+  intensity: 200
   echoFlowFunction:
     serializedVersion: 2
     m_Curve:
@@ -31,8 +31,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.030612241
     - serializedVersion: 3
-      time: 0.15569633
-      value: 0.8954096
+      time: 0.20063059
+      value: 0.8482928
       inSlope: 0.4685644
       outSlope: 0.4685644
       tangentMode: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.04123704
     - serializedVersion: 3
-      time: 0.7960977
-      value: 0.054843158
+      time: 0.5747537
+      value: 0.036975116
       inSlope: -0.00300414
       outSlope: -0.00300414
       tangentMode: 0
