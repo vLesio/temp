@@ -397,6 +397,8 @@ GameObject:
   - component: {fileID: 9029681545622261768}
   - component: {fileID: 7511768478019257132}
   - component: {fileID: 1218815766427010526}
+  - component: {fileID: 2296148987305439569}
+  - component: {fileID: 3466504099999464377}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -475,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f466e3c61007f224f87206cb3000f923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   playerBody: {fileID: 2914436167730660418}
 --- !u!54 &1218815766427010526
 Rigidbody:
@@ -504,6 +506,27 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!81 &2296148987305439569
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100820477854872681}
+  m_Enabled: 1
+--- !u!114 &3466504099999464377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100820477854872681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734398de0a3245e58330befbf4491f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
 --- !u!1 &2382776970239647398
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +673,7 @@ GameObject:
   - component: {fileID: 8201178928112918015}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +736,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -731,7 +754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footStepEcho: {fileID: 11400000, guid: 17d78b435fe459b4f9c6230e68579b9f, type: 2}
   snapEcho: {fileID: 11400000, guid: 788cf8be2fa39944b9556e4b9ed01463, type: 2}
-  snapEchoSound: {fileID: 8300000, guid: 8dd882cb4e5d39f4aa85883fe1c4359f, type: 3}
 --- !u!82 &8201178928112918015
 AudioSource:
   m_ObjectHideFlags: 0
