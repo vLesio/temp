@@ -16,7 +16,7 @@ public class NoiseEnemy : MonoBehaviour
     private Coroutine backCor;
     private Vector3 lastChecked;
 
-    private float speed = 0.75f;
+    [SerializeField] private float speed = 0.75f;
 
     private void Start()
     {
@@ -100,6 +100,12 @@ public class NoiseEnemy : MonoBehaviour
                 backCor = null;
                 yield break;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Player")){
+            other.GetComponent<Player>().PlayerDies();
         }
     }
 }

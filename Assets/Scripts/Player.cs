@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     private PlayerEcho _playerEcho;
     private Camera _mainCamera;
     private Animator _animator;
+    private GameManager _gameManager;
     void Start()
     {
         // Self components
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerEcho = GetComponent<PlayerEcho>();
         _animator = GetComponentInChildren<Animator>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         // Children components
         
         RegisterPlayerInput();
@@ -28,6 +30,11 @@ public class Player : MonoBehaviour {
     private void RegisterPlayerInput() {
         _playerInput.actions["Jump"].performed += OnJump;
         _playerInput.actions["CastEcho"].performed += OnEchoCast;
+    }
+
+    public void PlayerDies() {
+        _animator.SetTrigger("Died");
+        _gameManager.PlayerDied();
     }
 
     public void UpdateOnLook() {

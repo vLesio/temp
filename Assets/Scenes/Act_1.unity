@@ -4497,9 +4497,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098521978840625681, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 396601075805755716}
+    - target: {fileID: 1098521978840625681, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098521978840625681, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098521978840625681, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1753783855848459130, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
       propertyPath: m_Name
       value: PlayerHud
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390292666488935170, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 396601075805755716}
+    - target: {fileID: 3390292666488935170, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390292666488935170, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390292666488935170, guid: 7e06a7e4b078333488c45216d5b2186b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14222,6 +14254,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c980b88a6256d2a499f0df5d291fdac1, type: 3}
+--- !u!114 &396601075805755716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1675696067660788834, guid: c980b88a6256d2a499f0df5d291fdac1, type: 3}
+  m_PrefabInstance: {fileID: 396601075805755715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585d87b012d15dd41bfc3d186faf733a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &453960699394452264
 PrefabInstance:
   m_ObjectHideFlags: 0
