@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using SO.Echos;
-using Unity.Collections;
-using UnityEditor.UIElements;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.Rendering;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Utility{
   public class EchoLight : MonoBehaviour
   {
       [SerializeField] private UnityEvent onSound;
       [SerializeField] private Light lightComponent;
-      [SerializeField] private float speed = 200f;
+      [SerializeField] private float duration = 1f;
       [SerializeField] private Coroutine lightCor;
-      [SerializeField] private AnimationCurve speedupFunction;
+      [FormerlySerializedAs("speedupFunction")] [SerializeField] private AnimationCurve speedFunction;
+      [SerializeField] private AnimationCurve easeOutFunction;      
       [SerializeField] private GameObject lightTrigger;
       [SerializeField] private float inputIntensity;
       [SerializeField] private bool emitTrigger = true;
       [SerializeField] private bool enlightOnlySeenByPlayer = true;
+      [SerializeField] private float desiredAngle = 0f;
       
       private static Dictionary<Vector2, Texture2D> bakedTextures = new();
 
@@ -45,10 +45,6 @@ namespace Utility{
         lightComponent.color = color;
       }
 
-      public void SetSpeed(float speed){
-        this.speed = speed;
-      }
-
       public void SetLineWidth(float width){
         lineWidth = width;
         BakeCookie();
@@ -65,11 +61,14 @@ namespace Utility{
       public void SetLight(Echo echo){
         SetRange(echo.range);
         SetColor(echo.color);
-        SetSpeed(echo.speed);
         SetLineWidth(echo.width);
         emitTrigger = echo.shouldCastTrigger;
         inputIntensity = echo.intensity;
         enlightOnlySeenByPlayer = echo.enlightIgnoresWalls;
+        speedFunction = echo.echoFlowFunction;
+        easeOutFunction = echo.echoEaseOutFunction;
+        desiredAngle = echo.desiredAngle;
+        duration = echo.duration;
       }
       
       public void CastLight(){
@@ -84,18 +83,30 @@ namespace Utility{
         lightComponent.innerSpotAngle = 0f;
 
         GameObject tr = Instantiate(lightTrigger);
-        tr.transform.position = transform.position - Vector3.up;
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, 10000, LayerMask.GetMask("Default"));
+        float path = 0;
+        if (hit.collider.IsUnityNull()) {
+          tr.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        }
+        else {
+          Debug.Log("Custom trigger position set");
+          tr.transform.position = hit.point;
+          path = (hit.point - transform.position).magnitude;
+        }
         tr.transform.SetParent(transform);
         EchoLightTrigger echoTrigger = tr.GetComponent<EchoLightTrigger>();
         echoTrigger.ShouldEnlightIgnoreWalls(enlightOnlySeenByPlayer);
 
-        while(lightComponent.spotAngle < 155){
+        var animationStart = Time.time;
+        while(Time.time - animationStart <= duration) {
           yield return null;
-          lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
+          var scaledTime = (Time.time - animationStart)/duration;
+          lightComponent.spotAngle = speedFunction.Evaluate(scaledTime) * desiredAngle;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
-          lightComponent.intensity = inputIntensity * Mathf.Min(1 , (158 - lightComponent.spotAngle)/60);
-          echoTrigger.AddRadius(speed / 360f * lightComponent.range * 
-          speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime / 1.5f);
+          lightComponent.intensity = easeOutFunction.Evaluate(scaledTime) * inputIntensity;
+          Debug.Log($"Radius to set {Mathf.Tan(Mathf.Deg2Rad * (lightComponent.spotAngle/2) ) * path}, angle ${lightComponent.spotAngle}, path ${path}");
+          echoTrigger.SetRadius(Mathf.Tan(Mathf.Deg2Rad * (lightComponent.spotAngle/2) ) * path);
         }
         lightComponent.enabled = false;
         lightCor = null;
@@ -106,11 +117,14 @@ namespace Utility{
         lightComponent.enabled = true;
         lightComponent.spotAngle = 0f;
         lightComponent.innerSpotAngle = 0f;
-        while(lightComponent.spotAngle < 155){
+
+        var animationStart = Time.time;
+        while(Time.time - animationStart <= duration) {
           yield return null;
-          lightComponent.spotAngle += speed * speedupFunction.Evaluate(lightComponent.spotAngle/160) * Time.deltaTime;
+          var scaledTime = (Time.time - animationStart)/duration;
+          lightComponent.spotAngle = speedFunction.Evaluate(scaledTime) * desiredAngle;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
-          lightComponent.intensity = inputIntensity * Mathf.Min(1 , (158 - lightComponent.spotAngle)/60);
+          lightComponent.intensity = easeOutFunction.Evaluate(scaledTime) * inputIntensity;
         }
         lightComponent.enabled = false;
         lightCor = null;

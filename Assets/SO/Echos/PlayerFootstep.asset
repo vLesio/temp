@@ -13,10 +13,23 @@ MonoBehaviour:
   m_Name: PlayerFootstep
   m_EditorClassIdentifier: 
   range: 2.5
-  speed: 800
+  duration: 1
+  desiredAngle: 150
   width: 0.8
   yOffset: 2
   intensity: 20
+  echoFlowFunction:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  echoEaseOutFunction:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   shouldCastTrigger: 1
   enlightIgnoresWalls: 0
   color: {r: 1, g: 1, b: 1, a: 1}

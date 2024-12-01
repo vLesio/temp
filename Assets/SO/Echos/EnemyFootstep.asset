@@ -13,10 +13,23 @@ MonoBehaviour:
   m_Name: EnemyFootstep
   m_EditorClassIdentifier: 
   range: 1.5
-  speed: 250
+  duration: 1
+  desiredAngle: 150
   width: 0.3
   yOffset: 2
   intensity: 50
+  echoFlowFunction:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  echoEaseOutFunction:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   shouldCastTrigger: 0
   enlightIgnoresWalls: 0
   color: {r: 1, g: 0, b: 0, a: 1}
