@@ -730,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footStepEcho: {fileID: 11400000, guid: 17d78b435fe459b4f9c6230e68579b9f, type: 2}
   snapEcho: {fileID: 11400000, guid: 788cf8be2fa39944b9556e4b9ed01463, type: 2}
+  snapEchoSound: {fileID: 8300000, guid: 8dd882cb4e5d39f4aa85883fe1c4359f, type: 3}
 --- !u!1 &3163551172311059917
 GameObject:
   m_ObjectHideFlags: 0
