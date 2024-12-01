@@ -90,7 +90,6 @@ namespace Utility{
           tr.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
         else {
-          Debug.Log("Custom trigger position set");
           tr.transform.position = hit.point;
           path = (hit.point - transform.position).magnitude;
         }
@@ -105,7 +104,6 @@ namespace Utility{
           lightComponent.spotAngle = speedFunction.Evaluate(scaledTime) * desiredAngle;
           lightComponent.innerSpotAngle = lightComponent.spotAngle;
           lightComponent.intensity = easeOutFunction.Evaluate(scaledTime) * inputIntensity;
-          Debug.Log($"Radius to set {Mathf.Tan(Mathf.Deg2Rad * (lightComponent.spotAngle/2) ) * path}, angle ${lightComponent.spotAngle}, path ${path}");
           echoTrigger.SetRadius(Mathf.Tan(Mathf.Deg2Rad * (lightComponent.spotAngle/2) ) * path);
         }
         lightComponent.enabled = false;
