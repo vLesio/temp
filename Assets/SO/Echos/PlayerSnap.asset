@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 40
   duration: 3
-  desiredAngle: 31
+  desiredAngle: 70
   width: 0.1
-  yOffset: 30
-  intensity: 4500
+  yOffset: 10
+  intensity: 3000
   echoFlowFunction:
     serializedVersion: 2
     m_Curve:
@@ -32,7 +32,7 @@ MonoBehaviour:
       outWeight: 0.030612241
     - serializedVersion: 3
       time: 0.15569633
-      value: 0.8954096
+      value: 0.8999262
       inSlope: 0.4685644
       outSlope: 0.4685644
       tangentMode: 0
