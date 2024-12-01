@@ -76,4 +76,9 @@ public class FirstBigDoor : MonoBehaviour, IInteractable {
             yield return null;
         }
     }
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
 }

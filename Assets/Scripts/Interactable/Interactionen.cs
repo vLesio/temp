@@ -27,6 +27,11 @@ namespace Utility.Interactable {
             }
         }
 
+        public Transform GetInteraction(){
+            if(_interactableObject != null) return _interactableObject.GetTransform();
+            return null;
+        }
+
         private List<IInteractable> FindInteractiveObjects() {
             List<IInteractable> foundInterfaces = new List<IInteractable>();
 
