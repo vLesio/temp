@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class NoiseEnemy : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class NoiseEnemy : MonoBehaviour
 
     [SerializeField] private float detectionDistance = 10f;
     [SerializeField] private float walkDistance = 16f;
+    private Animator _animator;
 
     private Vector3 startPosition;
     private Coroutine backCor;
@@ -19,10 +22,15 @@ public class NoiseEnemy : MonoBehaviour
     {
         startPosition = transform.position;
         lastChecked = startPosition;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void SetSpeed(float speed){
         this.speed = speed;
+    }
+
+    private void Update() {
+        _animator.SetFloat("Speed", Mathf.Min(agent.velocity.magnitude, 1));
     }
 
     public void PathFindToNoise(Vector3 noiseSource){
