@@ -4545,7 +4545,7 @@ GameObject:
   - component: {fileID: 599401990}
   - component: {fileID: 599401989}
   - component: {fileID: 599401992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 686836683}
   - component: {fileID: 686836684}
   - component: {fileID: 686836685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwitchActive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5301,10 +5301,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2855912399076817241, guid: 2d7918484a4b3a34dbf0aae9ab420d4b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7c3419930b2ea9f4aa10b080dc9a602e, type: 3}
   m_Resource: {fileID: 8300000, guid: 7c3419930b2ea9f4aa10b080dc9a602e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9943,7 +9943,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3990783427292093437, guid: df60ad2e3e3549745a86451b64232387, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.290196
+      value: -4.4198036
       objectReference: {fileID: 0}
     - target: {fileID: 3990783427292093437, guid: df60ad2e3e3549745a86451b64232387, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9951,7 +9951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3990783427292093437, guid: df60ad2e3e3549745a86451b64232387, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.818605
+      value: 13.651396
       objectReference: {fileID: 0}
     - target: {fileID: 3990783427292093437, guid: df60ad2e3e3549745a86451b64232387, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12393,7 +12393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603532189535902755, guid: 95ef39af9efd2224dad7038452fb163d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.96
+      value: -11.75
       objectReference: {fileID: 0}
     - target: {fileID: 6603532189535902755, guid: 95ef39af9efd2224dad7038452fb163d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12401,7 +12401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603532189535902755, guid: 95ef39af9efd2224dad7038452fb163d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.65
+      value: 24.12
       objectReference: {fileID: 0}
     - target: {fileID: 6603532189535902755, guid: 95ef39af9efd2224dad7038452fb163d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17175,6 +17175,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 264427363}
+    - target: {fileID: 239004341411036361, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 239004341411036361, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 239004341411036361, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.69
+      objectReference: {fileID: 0}
     - target: {fileID: 412435078713100052, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17363,6 +17375,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 317731634}
+    - target: {fileID: 5920326465106779526, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920326465106779526, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920326465106779526, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6092066826639288263, guid: 01c58fde00aae924e8af5c5c6004487a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17511,6 +17535,10 @@ PrefabInstance:
       propertyPath: canvasPanel
       value: 
       objectReference: {fileID: 936962383}
+    - target: {fileID: 8419848880708759188, guid: ede85462982e5714ea3ddd8b92c00056, type: 3}
+      propertyPath: skipCutScene
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

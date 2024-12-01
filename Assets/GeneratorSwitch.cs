@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,10 @@ public class GeneratorSwitch : MonoBehaviour, IInteractable {
 
     private AudioSource _globalAudio;
     private bool hasInteracted = false;
+
+    private void Start() {
+        _globalAudio = GetComponent<AudioSource>();
+    }
 
     public bool CanInteract() {
         return !hasInteracted;
