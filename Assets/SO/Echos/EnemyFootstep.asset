@@ -12,21 +12,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555edefa71cc1f14ca93a7275dd323e9, type: 3}
   m_Name: EnemyFootstep
   m_EditorClassIdentifier: 
-  range: 1.5
-  duration: 1
-  desiredAngle: 150
+  range: 5
+  duration: 2
+  desiredAngle: 110
   width: 0.3
   yOffset: 2
-  intensity: 50
+  intensity: 1000
   echoFlowFunction:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.3899376
+      outSlope: 3.3899376
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.030612241
+    - serializedVersion: 3
+      time: 0.15569633
+      value: 0.8954096
+      inSlope: 0.4685644
+      outSlope: 0.4685644
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5264931
+      outWeight: 0.076299876
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   echoEaseOutFunction:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0029144287
+      value: 1.0023499
+      inSlope: -2.5421777
+      outSlope: -2.5421777
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04123704
+    - serializedVersion: 3
+      time: 0.7960977
+      value: 0.054843158
+      inSlope: -0.00300414
+      outSlope: -0.00300414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08059024
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0011903
+      value: 0.00010989746
+      inSlope: 0.028854657
+      outSlope: 0.028854657
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.8141258
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
