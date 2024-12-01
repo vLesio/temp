@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _canvasGameObject = GameObject.Find("GameOverScreen"); 
+        _canvasGameObject.SetActive(false);
     }
 
     public void PlayerDied() {

@@ -34,6 +34,8 @@ public class Player : MonoBehaviour {
 
     public void PlayerDies() {
         _animator.SetTrigger("Died");
+        _playerInput.actions["Jump"].performed -= OnJump;
+        _playerInput.actions["CastEcho"].performed -= OnEchoCast;
         _gameManager.PlayerDied();
     }
 

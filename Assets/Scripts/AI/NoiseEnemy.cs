@@ -105,7 +105,7 @@ public class NoiseEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
-            other.GetComponent<Player>().PlayerDies();
+            other.transform.parent.GetComponent<Player>().PlayerDies();
         }
     }
 }
